@@ -6,9 +6,12 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-
+const hikeRouter = require('./routes/hike');
+const { index, add_hike } = hikeRouter;
 const app = express();
 
+app.get('/hikes', index);
+app.post('/hikes', add_hike);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
